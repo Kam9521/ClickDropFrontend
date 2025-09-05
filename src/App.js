@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import { useTranslation } from "react-i18next";
 
-function App() {
+export default function App() {
+  const { t } = useTranslation();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+
+      <main className="flex-1 max-w-screen-xl mx-auto px-4 py-10">
+        <h2 className="text-2xl font-semibold mb-4">{t("welcome")}</h2>
+        <p className="text-gray-600"> kolejne sekcje </p>
+      </main>
+
+      <Footer />
     </div>
   );
 }
-
-export default App;
