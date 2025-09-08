@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 
 export default function App() {
   const { t } = useTranslation();
+  <h1>{t("app_title")}</h1>;
 
   return (
     <div className="min-h-screen flex flex-col">
