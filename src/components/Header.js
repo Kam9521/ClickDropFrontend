@@ -6,10 +6,8 @@ export default function Header() {
   return (
     <header className="bg-gray-900 text-white">
       <div className="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between">
+        <h1 className="text-xl font-bold">{t("app_title")}</h1>
 
-        <h1 className="text-xl font-bold">ClickDrop</h1>
-
-      
         <nav className="flex gap-6">
           <a href="/login" className="hover:text-teal-300">
             {t("nav_login")}
@@ -22,7 +20,6 @@ export default function Header() {
           </a>
         </nav>
 
-        
         <div className="flex gap-2">
           <button
             onClick={() => i18n.changeLanguage("pl")}
