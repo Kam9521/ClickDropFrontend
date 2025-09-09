@@ -1,7 +1,9 @@
 import { useTranslation } from "react-i18next";
+import { setLanguage, getCurrentLanguage } from "../services/i18nService";
 
 export default function Header() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const current = getCurrentLanguage();
 
   return (
     <header className="bg-gray-900 text-white">
@@ -22,21 +24,17 @@ export default function Header() {
 
         <div className="flex gap-2">
           <button
-            onClick={() => i18n.changeLanguage("pl")}
+            onClick={() => setLanguage("pl")}
             className={`px-2 py-1 rounded text-sm ${
-              i18n.language === "pl"
-                ? "bg-teal-500"
-                : "bg-gray-700 hover:bg-gray-600"
+              current === "pl" ? "bg-teal-500" : "bg-gray-700 hover:bg-gray-600"
             }`}
           >
             PL
           </button>
           <button
-            onClick={() => i18n.changeLanguage("en")}
+            onClick={() => setLanguage("en")}
             className={`px-2 py-1 rounded text-sm ${
-              i18n.language === "en"
-                ? "bg-teal-500"
-                : "bg-gray-700 hover:bg-gray-600"
+              current === "en" ? "bg-teal-500" : "bg-gray-700 hover:bg-gray-600"
             }`}
           >
             EN
