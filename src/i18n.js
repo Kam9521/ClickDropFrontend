@@ -7,8 +7,14 @@ const resources = {
       app_title: "ClickDrop",
       nav_home: "Home",
       nav_about: "About",
-      footer_text: "All rights reserved.",
+      nav_register: "Register",
+      nav_login: "Login",
       welcome: "Welcome to ClickDrop",
+      footer: {
+        rights: "All rights reserved.",
+        contact: "Contact",
+        navLabel: "Footer navigation",
+      },
     },
   },
   pl: {
@@ -16,8 +22,14 @@ const resources = {
       app_title: "ClickDrop",
       nav_home: "Start",
       nav_about: "O nas",
-      footer_text: "Wszelkie prawa zastrzeżone.",
+      nav_register: "Rejestracja",
+      nav_login: "Logowanie",
       welcome: "Witamy w ClickDrop",
+      footer: {
+        rights: "Wszelkie prawa zastrzeżone.",
+        contact: "Kontakt",
+        navLabel: "Nawigacja w stopce",
+      },
     },
   },
 };
