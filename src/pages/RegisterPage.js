@@ -1,7 +1,8 @@
+import { validateRegister } from "../services/validationService";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-export default function Register() {
+export default function RegisterPage() {
   const { t, i18n } = useTranslation();
   const [values, setValues] = useState({
     email: "",
@@ -11,10 +12,15 @@ export default function Register() {
     agree: false,
   });
   const [errors, setErrors] = useState({});
+  const runValidate = () => {
+    const errs = validateRegister(values, t);
+    setErrors(errs);
+    return Object.keys(errs).length === 0;
+  };
 
   useEffect(() => {
     if (Object.keys(errors).length) {
-      validate();
+      runValidate();
     }
   }, [i18n.language]);
 
@@ -23,32 +29,9 @@ export default function Register() {
     setValues((v) => ({ ...v, [name]: type === "checkbox" ? checked : value }));
   };
 
-  const validate = () => {
-    const errs = {};
-    if (!values.email) errs.email = t("register.errors.required");
-    else if (!/^\S+@\S+\.\S+$/.test(values.email))
-      errs.email = t("register.errors.email");
-
-    if (!values.nickname) errs.nickname = t("register.errors.required");
-
-    if (!values.password) errs.password = t("register.errors.required");
-    else if (values.password.length < 8)
-      errs.password = t("register.errors.passwordLength");
-
-    if (!values.confirmPassword)
-      errs.confirmPassword = t("register.errors.required");
-    else if (values.confirmPassword !== values.password)
-      errs.confirmPassword = t("register.errors.passwordMatch");
-
-    if (!values.agree) errs.agree = t("register.errors.agree");
-
-    setErrors(errs);
-    return Object.keys(errs).length === 0;
-  };
-
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!validate()) return;
+    if (!runValidate()) return;
     console.log("REGISTER PAYLOAD:", values);
     alert(t("register.success"));
   };
@@ -58,7 +41,6 @@ export default function Register() {
       <h1 className="text-2xl font-semibold mb-6">{t("register.title")}</h1>
 
       <form onSubmit={onSubmit} className="space-y-5">
-        {/* Email */}
         <div>
           <label htmlFor="email" className="block text-sm mb-1">
             {t("register.email")}
@@ -77,7 +59,6 @@ export default function Register() {
           )}
         </div>
 
-        {/* Nickname */}
         <div>
           <label htmlFor="nickname" className="block text-sm mb-1">
             {t("register.nickname")}
@@ -96,7 +77,6 @@ export default function Register() {
           )}
         </div>
 
-        {/* Password */}
         <div>
           <label htmlFor="password" className="block text-sm mb-1">
             {t("register.password")}
@@ -114,7 +94,6 @@ export default function Register() {
           )}
         </div>
 
-        {/* Confirm Password */}
         <div>
           <label htmlFor="confirmPassword" className="block text-sm mb-1">
             {t("register.confirmPassword")}
@@ -134,7 +113,6 @@ export default function Register() {
           )}
         </div>
 
-        {/* Agree */}
         <div>
           <label className="inline-flex items-center gap-2">
             <input
