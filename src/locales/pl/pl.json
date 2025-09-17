@@ -1,0 +1,45 @@
+{
+  "app_title": "ClickDrop",
+  "nav_home": "Start",
+  "nav_about": "O nas",
+  "nav_register": "Rejestracja",
+  "nav_login": "Logowanie",
+  "welcome": "Witamy w ClickDrop",
+  "footer": {
+    "rights": "Wszelkie prawa zastrzeżone.",
+    "contact": "Kontakt",
+    "navLabel": "Nawigacja w stopce"
+  },
+  "register": {
+    "title": "Rejestracja",
+    "email": "E-mail",
+    "nickname": "Nick",
+    "nicknamePlaceholder": "np. Kamil",
+    "password": "Hasło",
+    "confirmPassword": "Potwierdź hasło",
+    "agreePrefix": "Akceptuję",
+    "terms": "regulamin",
+    "submit": "Zarejestruj się",
+    "success": "Rejestracja wysłana (demo).",
+    "errors": {
+      "required": "To pole jest wymagane.",
+      "email": "Podaj poprawny adres e-mail.",
+      "passwordLength": "Hasło musi mieć co najmniej 8 znaków.",
+      "passwordMatch": "Hasła muszą być takie same.",
+      "agree": "Musisz zaakceptować regulamin."
+    }
+  },
+  "login": {
+    "title": "Logowanie",
+    "email": "E-mail",
+    "password": "Hasło",
+    "remember": "Zapamiętaj mnie",
+    "submit": "Zaloguj się",
+    "success": "Logowanie wysłane (demo).",
+    "errors": {
+      "required": "To pole jest wymagane.",
+      "email": "Podaj poprawny adres e-mail.",
+      "passwordLength": "Hasło musi mieć co najmniej 8 znaków."
+    }
+  }
+}
