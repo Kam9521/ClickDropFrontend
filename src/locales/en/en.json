@@ -1,0 +1,69 @@
+{
+  "app_title": "ClickDrop",
+  "nav_home": "Home",
+  "nav_about": "About",
+  "nav_register": "Register",
+  "nav_login": "Login",
+  "welcome": "Welcome to ClickDrop",
+  "footer": {
+    "rights": "All rights reserved.",
+    "contact": "Contact",
+    "navLabel": "Footer navigation"
+  },
+  "common": {
+    "emailPlaceholder": "name@example.com"
+  },
+  "register": {
+    "title": "Sign up",
+    "email": "Email",
+    "nickname": "Nickname",
+    "nicknamePlaceholder": "e.g. Kamil",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "agreePrefix": "I accept the",
+    "terms": "terms",
+    "submit": "Create account",
+    "success": "Registration submitted (demo).",
+    "errors": {
+      "required": "This field is required.",
+      "email": "Enter a valid email.",
+      "passwordLength": "Password must be at least 8 characters.",
+      "passwordMatch": "Passwords must match.",
+      "agree": "You must accept the terms."
+    }
+  },
+
+  "login": {
+    "title": "Sign in",
+    "email": "Email",
+    "password": "Password",
+    "remember": "Remember me",
+    "submit": "Log in",
+    "success": "Login submitted (demo).",
+    "errors": {
+      "required": "This field is required.",
+      "email": "Enter a valid email.",
+      "passwordLength": "Password must be at least 8 characters."
+    }
+  },
+
+  "contact": {
+    "title": "Contact",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "message": "Message",
+    "messagePlaceholder": "Write your message...",
+    "acceptPrefix": "I accept the",
+    "terms": "terms",
+    "submit": "Send",
+    "success": "Message sent (demo).",
+    "errors": {
+      "required": "This field is required.",
+      "email": "Enter a valid email address.",
+      "messageLength": "Message must be at least 10 characters.",
+      "accept": "You must accept the terms."
+    }
+  },
+  "nav_contact": "Contact"
+}
