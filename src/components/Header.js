@@ -19,7 +19,10 @@ export default function Header() {
             {t("nav_login")}
           </a>
           <a href="/register" className="ml-4 hover:text-teal-300">
-          {t("nav_register")}
+            {t("nav_register")}
+          </a>
+          <a href="/contact" className="ml-4">
+            {t("nav_contact")}
           </a>
 
           <div className="flex items-center gap-2">

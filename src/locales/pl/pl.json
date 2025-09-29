@@ -41,5 +41,24 @@
       "email": "Podaj poprawny adres e-mail.",
       "passwordLength": "Hasło musi mieć co najmniej 8 znaków."
     }
-  }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "name": "Imię",
+    "namePlaceholder": "Twoje imię",
+    "email": "E-mail",
+    "message": "Wiadomość",
+    "messagePlaceholder": "Napisz wiadomość...",
+    "acceptPrefix": "Akceptuję",
+    "terms": "regulamin",
+    "submit": "Wyślij",
+    "success": "Wiadomość wysłana (demo).",
+    "errors": {
+      "required": "To pole jest wymagane.",
+      "email": "Podaj poprawny adres e-mail.",
+      "messageLength": "Wiadomość musi mieć co najmniej 10 znaków.",
+      "accept": "Musisz zaakceptować regulamin."
+    }
+  },
+  "nav_contact": "Kontakt"
 }

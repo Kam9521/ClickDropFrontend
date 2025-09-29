@@ -1,5 +1,6 @@
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
+import ContactPage from "./pages/ContactPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useTranslation } from "react-i18next";
@@ -17,11 +18,13 @@ export default function App() {
           <RegisterPage />
         ) : path === "/login" ? (
           <LoginPage />
+        ) : path === "/contact" ? (
+          <ContactPage />
         ) : (
-          <>
+          <div>
             <h2 className="text-2xl font-semibold mb-4">{t("welcome")}</h2>
             <p className="text-gray-600">kolejne sekcje</p>
-          </>
+          </div>
         )}
       </main>
 

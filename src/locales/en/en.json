@@ -29,6 +29,7 @@
       "agree": "You must accept the terms."
     }
   },
+
   "login": {
     "title": "Sign in",
     "email": "Email",
@@ -41,5 +42,24 @@
       "email": "Enter a valid email.",
       "passwordLength": "Password must be at least 8 characters."
     }
-  }
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "message": "Message",
+    "messagePlaceholder": "Write your message...",
+    "acceptPrefix": "I accept the",
+    "terms": "terms",
+    "submit": "Send",
+    "success": "Message sent (demo).",
+    "errors": {
+      "required": "This field is required.",
+      "email": "Enter a valid email address.",
+      "messageLength": "Message must be at least 10 characters.",
+      "accept": "You must accept the terms."
+    }
+  },
+  "nav_contact": "Contact"
 }
