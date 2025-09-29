@@ -9,10 +9,10 @@ export default function Header() {
         <h1 className="text-xl font-semibold">{t("app_title")}</h1>
 
         <nav className="flex items-center gap-6">
-          <a href="/" className="hover:text-teal-300">
+          <a href="/" className="ml-4 hover:text-teal-300">
             {t("nav_home")}
           </a>
-          <a href="/about" className="hover:text-teal-300">
+          <a href="/about" className="ml-4 hover:text-teal-300">
             {t("nav_about")}
           </a>
           <a href="/login" className="ml-4">
