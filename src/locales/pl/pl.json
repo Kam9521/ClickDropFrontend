@@ -10,6 +10,9 @@
     "contact": "Kontakt",
     "navLabel": "Nawigacja w stopce"
   },
+  "common": {
+    "emailPlaceholder": "nazwa@przyklad.com"
+  },
   "register": {
     "title": "Rejestracja",
     "email": "E-mail",

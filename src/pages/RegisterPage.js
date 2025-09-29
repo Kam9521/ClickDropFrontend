@@ -52,7 +52,7 @@ export default function RegisterPage() {
             value={values.email}
             onChange={onChange}
             className="w-full border rounded px-3 py-2 focus:outline-none focus:ring"
-            placeholder="name@example.com"
+            placeholder={t("common.emailPlaceholder")}
           />
           {errors.email && (
             <p className="text-red-600 text-sm mt-1">{errors.email}</p>

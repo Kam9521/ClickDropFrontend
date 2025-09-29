@@ -10,6 +10,9 @@
     "contact": "Contact",
     "navLabel": "Footer navigation"
   },
+  "common": {
+    "emailPlaceholder": "name@example.com"
+  },
   "register": {
     "title": "Sign up",
     "email": "Email",
@@ -43,6 +46,7 @@
       "passwordLength": "Password must be at least 8 characters."
     }
   },
+
   "contact": {
     "title": "Contact",
     "name": "Name",
