@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { login } from "../services/authService";
 import { validateLogin } from "../services/loginValidationService";
 
 export default function LoginPage() {
   const { t, i18n } = useTranslation();
+
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -26,11 +28,27 @@ export default function LoginPage() {
     setValues((v) => ({ ...v, [name]: type === "checkbox" ? checked : value }));
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (!runValidate()) return;
-    console.log("LOGIN PAYLOAD:", values);
-    alert(t("login.success"));
+
+    try {
+      const data = await login({
+        email: values.email,
+        password: values.password,
+      });
+
+      if (data?.token) {
+        (values.remember ? localStorage : sessionStorage).setItem(
+          "token",
+          data.token
+        );
+      }
+
+      alert(`Zalogowano jako: ${values.email}`);
+    } catch (err) {
+      alert(`${t("login.error") || "Błąd logowania"}: ${err.message}`);
+    }
   };
 
   return (

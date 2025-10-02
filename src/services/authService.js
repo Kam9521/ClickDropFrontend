@@ -18,27 +18,32 @@ export async function registerUser({ username, email, password }) {
   try {
     const data = await res.json();
     if (data?.violations) {
-      message = data.violations
-        .map((v) => `${v.propertyPath}: ${v.message}`)
-        .join("\n");
-    } else if (data?.message) message = data.message;
-    else if (data?.detail) message = data.detail;
-  } catch (_) {}
+      message = data.violations.map((v) => v.message).join("\n");
+    } else if (data?.message) {
+      message = data.message;
+    }
+  } catch {}
   throw new Error(message);
 }
 
 export async function login({ email, password }) {
   const res = await fetch(`${API_BASE}/api/auth/login`, {
     method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
     body: JSON.stringify({ email, password }),
   });
+
   if (!res.ok) {
     let msg = "Logowanie nieudane";
     try {
-      msg = (await res.json())?.message || msg;
+      const data = await res.json();
+      msg = data.message || msg;
     } catch {}
     throw new Error(msg);
   }
+
   return res.json();
 }
