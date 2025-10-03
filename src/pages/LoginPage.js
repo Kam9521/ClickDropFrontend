@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { login } from "../services/authService";
-import { validateLogin } from "../services/loginValidationService";
+import { login } from "../services/authService"; 
+import { validateLogin } from "../services/loginValidationService"; 
 
 export default function LoginPage() {
   const { t, i18n } = useTranslation();
@@ -38,16 +38,14 @@ export default function LoginPage() {
         password: values.password,
       });
 
-      if (data?.token) {
-        (values.remember ? localStorage : sessionStorage).setItem(
-          "token",
-          data.token
-        );
-      }
+      const storage = values.remember ? localStorage : sessionStorage;
+      storage.setItem("token", data.token);
 
-      alert(`Zalogowano jako: ${values.email}`);
+      alert(t("login.success", { email: values.email }));
     } catch (err) {
-      alert(`${t("login.error") || "Błąd logowania"}: ${err.message}`);
+      const base = t("login.errorDefault");
+      const extra = err.message ? `: ${err.message}` : "";
+      alert(`${base}${extra}`);
     }
   };
 

@@ -10,7 +10,7 @@ export async function registerUser({ username, email, password }) {
     body: JSON.stringify({ username, email, password }),
   });
 
-  if (res.status === 201) {
+  if (res.status === 201 || res.ok) {
     return await res.json();
   }
 
@@ -20,7 +20,9 @@ export async function registerUser({ username, email, password }) {
     if (data?.violations) {
       message = data.violations.map((v) => v.message).join("\n");
     } else if (data?.message) {
-      message = data.message;
+      message = `Wystąpił błąd: ${data.message}`;
+    } else if (data?.detail) {
+      message = "Wystąpił błąd podczas rejestracji.";
     }
   } catch {}
   throw new Error(message);
@@ -40,10 +42,10 @@ export async function login({ email, password }) {
     let msg = "Logowanie nieudane";
     try {
       const data = await res.json();
-      msg = data.message || msg;
+      msg = data?.message || msg;
     } catch {}
     throw new Error(msg);
   }
 
-  return res.json();
+  return await res.json();
 }
