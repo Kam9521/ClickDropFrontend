@@ -1,3 +1,5 @@
+import { registerUser } from "../services/authService";
+import { login } from "../services/authService";
 import { validateRegister } from "../services/validationService";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
@@ -29,11 +31,37 @@ export default function RegisterPage() {
     setValues((v) => ({ ...v, [name]: type === "checkbox" ? checked : value }));
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (!runValidate()) return;
-    console.log("REGISTER PAYLOAD:", values);
-    alert(t("register.success"));
+
+    try {
+      const payload = {
+        username: values.nickname,
+        email: values.email,
+        password: values.password,
+      };
+      const created = await registerUser(payload);
+
+      const { token } = await login({
+        email: values.email,
+        password: values.password,
+      });
+      localStorage.setItem("token", token);
+
+      alert(`Zarejestrowano: ${created.username}`);
+
+      setValues({
+        email: "",
+        nickname: "",
+        password: "",
+        confirmPassword: "",
+        agree: false,
+      });
+      setErrors({});
+    } catch (err) {
+      alert(err.message);
+    }
   };
 
   return (

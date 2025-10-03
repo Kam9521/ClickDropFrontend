@@ -38,7 +38,9 @@
     "password": "Hasło",
     "remember": "Zapamiętaj mnie",
     "submit": "Zaloguj się",
-    "success": "Logowanie wysłane (demo).",
+    "success": "Zalogowano jako: {{email}}",
+    "errorDefault": "Logowanie nieudane",
+    "errorBackendPrefix": "Szczegóły",
     "errors": {
       "required": "To pole jest wymagane.",
       "email": "Podaj poprawny adres e-mail.",

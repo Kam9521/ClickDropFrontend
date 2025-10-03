@@ -39,7 +39,9 @@
     "password": "Password",
     "remember": "Remember me",
     "submit": "Log in",
-    "success": "Login submitted (demo).",
+    "success": "Logged in as: {{email}}",
+    "errorDefault": "Sign-in failed",
+    "errorBackendPrefix": "Details",
     "errors": {
       "required": "This field is required.",
       "email": "Enter a valid email.",

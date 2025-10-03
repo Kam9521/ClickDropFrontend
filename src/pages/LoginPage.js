@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { validateLogin } from "../services/loginValidationService";
+import { login } from "../services/authService"; 
+import { validateLogin } from "../services/loginValidationService"; 
 
 export default function LoginPage() {
   const { t, i18n } = useTranslation();
+
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -26,11 +28,25 @@ export default function LoginPage() {
     setValues((v) => ({ ...v, [name]: type === "checkbox" ? checked : value }));
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (!runValidate()) return;
-    console.log("LOGIN PAYLOAD:", values);
-    alert(t("login.success"));
+
+    try {
+      const data = await login({
+        email: values.email,
+        password: values.password,
+      });
+
+      const storage = values.remember ? localStorage : sessionStorage;
+      storage.setItem("token", data.token);
+
+      alert(t("login.success", { email: values.email }));
+    } catch (err) {
+      const base = t("login.errorDefault");
+      const extra = err.message ? `: ${err.message}` : "";
+      alert(`${base}${extra}`);
+    }
   };
 
   return (
