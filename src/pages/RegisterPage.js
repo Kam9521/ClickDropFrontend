@@ -1,4 +1,5 @@
-import { registerUser, login } from "../services/authService";
+import { registerUser } from "../services/authService";
+import { login } from "../services/authService";
 import { validateRegister } from "../services/validationService";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
